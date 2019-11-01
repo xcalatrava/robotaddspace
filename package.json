@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -30,7 +31,4 @@
     "url": "https://github.com/birdietiger/publicspaces-webexteams/issues"
   },
   "homepage": "https://github.com/birdietiger/publicspaces-webexteams",
-  "scripts": {
-    "start": "node index.js"
-  }
 }
