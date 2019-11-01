@@ -30,4 +30,7 @@
     "url": "https://github.com/birdietiger/publicspaces-webexteams/issues"
   },
   "homepage": "https://github.com/birdietiger/publicspaces-webexteams"
+  "scripts": {
+  "start": "node index.js"
+  }
 }
