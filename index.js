@@ -4,8 +4,8 @@
 // add integration (oauth) support to have user login
 
 // setup env var
-const env = require('node-env-file');
-env(__dirname + '/.env');
+//const env = require('node-env-file');
+//env(__dirname + '/.env');
 
 // check for env vars
 if (!process.env.MONGO_URI) {
