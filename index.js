@@ -892,6 +892,7 @@ app.post('/api/webhooks', textParser, function(req, res, next){
 		var teamsHash = req.get('X-Spark-Signature');
 		if (hash !== teamsHash) { 
 			log.error('invalid webhook: wrong hash');
+			console.log('invalid webhook: wrong hash');
 			return;
 		}
 	}
@@ -899,10 +900,12 @@ app.post('/api/webhooks', textParser, function(req, res, next){
 	// create objext from body of webhook 
 	req.body = JSON.parse(req.body);
 	log.debug('webhook body: ', req.body);
+	console.log('webhook body: ', req.body);
 
 	// if webhook has status of disabled, ignore it
 	if (req.body.status == 'disabled') {
 		log.error('invalid webhook: status is disabled');
+		console.log('invalid webhook: status is disabled');
 		return;
 	}
 
@@ -915,6 +918,7 @@ app.post('/api/webhooks', textParser, function(req, res, next){
 		// check if domain is permitted
 		if (!isDomainPermitted(req.body.data.personEmail)) {
 			log.info('invalid webhook: domain not permitted: "'+req.body.data.personEmail+'"');
+			console.log('invalid webhook: domain not permitted: "'+req.body.data.personEmail+'"');
 			return;
 		}
 
@@ -930,6 +934,7 @@ app.post('/api/webhooks', textParser, function(req, res, next){
 		// check if domain is permitted
 		if (!isDomainPermitted(req.body.data.personEmail)) {
 			log.info('invalid webhook: domain not permitted: "'+req.body.data.personEmail+'"');
+			console.log('invalid webhook: domain not permitted: "'+req.body.data.personEmail+'"');
 			return;
 		}
 
@@ -2124,7 +2129,10 @@ app.post('/api/webhooks', function(req, res){
 				}
 
 				log.debug(cache.memberships[email]);
+				console.log(cache.memberships[email]);
 				log.info("updated cache for "+email);
+				console.log("updated cache for "+email);
+				
 
 			}
 
@@ -2209,6 +2217,7 @@ app.post('/api/webhooks', function(req, res){
 						// updated db
 						else {
 							log.info('Saved : ', data );
+							console.log('Saved : ', data );
 
 							// remove space from memberships cache
 							Object.keys(cache.memberships).forEach(function(email){
